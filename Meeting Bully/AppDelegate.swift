@@ -7,20 +7,15 @@
 //
 
 import Cocoa
+import EventKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    var statusBarItem: NSStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
-
-
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+    func applicationWillFinishLaunching(_ aNotification: Notification) {
+        guard let statusButton = statusBarItem.button else { return }
+        statusButton.title = "Meeting Bully"
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
-
 }
-
